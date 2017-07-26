@@ -7,7 +7,7 @@ $user = $_SESSION['login'];
 $user_id = $_SESSION['user_id'];
 
 $objDb = new DataBase;
-$action = "";
+
 
 if (isset($_POST['action'])) {
 	$action = isset($_POST['action']) ? 'create': "";
@@ -25,7 +25,6 @@ switch ($action) {
     case 'create':
         //создаем таблицу 
         if (!ctype_space($name)){
-            echo $action . $name;
             $objDb->createTable($name);
             } else {
             echo "<p style='color: red;'>Некорретный ввод имени таблицы!</p>";

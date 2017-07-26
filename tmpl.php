@@ -24,8 +24,6 @@ $types = array(
 <ul>
     <?php foreach ($tableList as $value): ?>
     <li><a href="?name=<?php echo $value ?>"><?= $value ?></a></li>
-     <?= $_GET['acction'] ?>
-
         <?php if (isset($_GET['name']) && ($_GET['name'] === $value)): ?>
             <table border ='1'>
                 <thead>
@@ -40,7 +38,7 @@ $types = array(
                 <tr>
                     <td  align="right" width="250">
                    
-                    <?php if (($_GET['action'] === 'editName') && ($_GET['field'] === $fields['Field'])): ?>
+                    <?php if (($action === 'editName') && ($_GET['field'] === $fields['Field'])): ?>
                         <form method="GET" action="manager.php" >
                             <input type="text" name="rename" value="<?= $fields['Field'] ?>">
                             <input type="hidden" name="name" value="<?= $value ?>">
@@ -62,7 +60,7 @@ $types = array(
                     </td>
 
                     <td align='right' width='150'>
-                    <?php if (($_GET['action'] === 'editType') && ($_GET['field'] === $fields['Field'])): ?>
+                    <?php if (($action === 'editType') && ($_GET['field'] === $fields['Field'])): ?>
                         <form method="GET" action="manager.php">
                             <select name="newType">
                             <?php foreach ($types as $val): ?>
